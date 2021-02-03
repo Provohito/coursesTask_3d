@@ -7,7 +7,7 @@ public class DestroyScript : MonoBehaviour
     
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "FirstStage" | collision.gameObject.tag == "SecondStage" | collision.gameObject.tag == "ThirdStage")
+        if (collision.gameObject.tag == "destroyObject")
         {
             Destroy(collision.gameObject);  
         }

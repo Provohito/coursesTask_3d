@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HitControll : MonoBehaviour
 {
+    [Header("Объекты и параметры")]
     [SerializeField]
     private GameObject prefabBullet;
 
@@ -16,10 +17,16 @@ public class HitControll : MonoBehaviour
     [SerializeField]
     float rechargeTime;
 
+    [Header("Звук")]
+    [SerializeField]
+    private AudioClip shootSound;
+
+    AudioSource sourceSound;
+
     float shootTimer;
     void Start()
     {
-
+        sourceSound = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -33,6 +40,8 @@ public class HitControll : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && !IsRecharge)
         {
+            
+            sourceSound.PlayOneShot(shootSound);
             Rigidbody _rgBodyBullet = Instantiate(prefabBullet).GetComponent<Rigidbody>();
             _rgBodyBullet.transform.position = pointToHit.position;
             _rgBodyBullet.transform.rotation = pointToHit.rotation; 

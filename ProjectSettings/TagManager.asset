@@ -8,6 +8,7 @@ TagManager:
   - SecondStage
   - ThirdStage
   - bullet
+  - destroyObject
   layers:
   - Default
   - TransparentFX
